@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moxan 导航站 | Momo Trace</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            orbitron: ['Orbitron', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- tsParticles -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.3.0/tsparticles.bundle.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white dark:bg-black text-gray-800 dark:text-gray-200 relative">
+
+<!-- 粒子背景 -->
+<div id="tsparticles" class="fixed top-0 left-0 w-full h-full -z-10"></div>
+
+<!-- 顶部栏 -->
+<div class="flex items-center justify-between px-6 py-4 shadow bg-white/70 dark:bg-black/70 backdrop-blur">
+  <h1 class="text-2xl font-bold">Moxan 导航</h1>
+  <div class="flex gap-4 items-center">
+    <input type="text" id="search" placeholder="搜索 / Search..." class="px-2 py-1 border rounded dark:bg-gray-800 dark:border-gray-700">
+    <button onclick="toggleDark()" class="text-xl"><i class="fa fa-moon"></i></button>
+    <button onclick="toggleLang()" class="text-sm border px-2 py-1 rounded">中 / EN</button>
+  </div>
+</div>
+
+<!-- 主体内容 -->
+<div class="max-w-5xl mx-auto px-4 py-6 space-y-6" id="content">
+
+  <!-- 置顶简介 -->
+  <div>
+    <h2 class="text-xl font-semibold mb-2"><i class="fa fa-star text-yellow-500"></i> <span class="t">Mogo 简介</span><span class="e hidden">About Mogo</span></h2>
+    <a href="https://about.moxan.top" target="_blank" class="block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">about.moxan.top</a>
+  </div>
+
+  <!-- 分类折叠组件 -->
+  <div class="space-y-4">
+    <!-- 导航 -->
+    <details open class="group border rounded p-4 bg-gray-100 dark:bg-gray-800">
+      <summary class="cursor-pointer text-lg font-semibold"><i class="fa fa-sitemap mr-2"></i><span class="t">默纤导航</span><span class="e hidden">Navigation</span></summary>
+      <ul class="pl-4 mt-2 space-y-2">
+        <li><a href="https://nev.moxan.top" target="_blank" class="hover:underline"><i class="fa fa-link mr-2"></i>nev.moxan.top</a></li>
+      </ul>
+    </details>
+
+    <!-- 主站 & 博客 -->
+    <details class="group border rounded p-4 bg-gray-100 dark:bg-gray-800">
+      <summary class="cursor-pointer text-lg font-semibold"><i class="fa fa-globe mr-2"></i><span class="t">主站与博客</span><span class="e hidden">Main & Blog</span></summary>
+      <ul class="pl-4 mt-2 space-y-2">
+        <li><a href="https://www.moxan.top" target="_blank"><i class="fa fa-home mr-2"></i>www.moxan.top</a></li>
+        <li><a href="https://cnblogs.com/momotrace" target="_blank"><i class="fa fa-blog mr-2"></i>博客</a></li>
+        <li><a href="https://music.163.com/#/playlist?id=8170701761" target="_blank"><i class="fa fa-music mr-2"></i>歌单</a></li>
+        <li><a href="https://music.163.com/#/user/home?id=2011267708" target="_blank"><i class="fa fa-user mr-2"></i>Leavetrace</a></li>
+      </ul>
+    </details>
+
+    <!-- 论坛 -->
+    <details class="group border rounded p-4 bg-gray-100 dark:bg-gray-800">
+      <summary class="cursor-pointer text-lg font-semibold"><i class="fa fa-comments mr-2"></i><span class="t">默纤论坛</span><span class="e hidden">Forum</span></summary>
+      <ul class="pl-4 mt-2 space-y-2">
+        <li><a href="https://b.moxan.top" target="_blank">b.moxan.top</a></li>
+        <li><a href="https://fk.n5c.cn/Sii2cA" target="_blank">邀请码获取</a></li>
+        <li><a href="https://moxan.top/apkd.html" target="_blank">客户端下载（安卓）</a></li>
+      </ul>
+    </details>
+
+    <!-- GPT & 工具集 -->
+    <details class="group border rounded p-4 bg-gray-100 dark:bg-gray-800">
+      <summary class="cursor-pointer text-lg font-semibold"><i class="fa fa-robot mr-2"></i><span class="t">GPT & 工具</span><span class="e hidden">GPT & Tools</span></summary>
+      <ul class="pl-4 mt-2 space-y-2">
+        <li><a href="https://gpt.moxan.top" target="_blank"><i class="fa fa-brain mr-2"></i>gpt.moxan.top</a></li>
+        <li><a href="https://draw.tool.moxan.top" target="_blank">在线绘画</a></li>
+        <li><a href="https://mm.tool.moxan.top" target="_blank">思维导图</a></li>
+        <li><a href="https://it.tool.moxan.top" target="_blank">IT 工具</a></li>
+        <li><a href="https://ca.tool.moxan.top" target="_blank">数学计算器</a></li>
+        <li><a href="https://fh1.moxan.top" target="_blank">文件快递柜</a></li>
+        <li><a href="https://whois.moxan.top" target="_blank">Whois</a></li>
+        <li><a href="https://os.moxan.top" target="_blank">在线办公</a></li>
+        <li><a href="https://code.moxan.top" target="_blank">在线 VSCode</a></li>
+      </ul>
+    </details>
+
+    <!-- 其他 -->
+    <details class="group border rounded p-4 bg-gray-100 dark:bg-gray-800">
+      <summary class="cursor-pointer text-lg font-semibold"><i class="fa fa-cubes mr-2"></i><span class="t">其他服务</span><span class="e hidden">Others</span></summary>
+      <ul class="pl-4 mt-2 space-y-2">
+        <li><a href="https://api1.music.moxan.top" target="_blank">音乐 API</a></li>
+        <li><a href="https://music.moxan.top" target="_blank">音乐服务</a></li>
+        <li><a href="https://cloud2.moxan.top" target="_blank">临时云盘</a></li>
+        <li><a href="https://code.moxan.top" target="_blank">支付（维护中）</a></li>
+      </ul>
+    </details>
+
+    <!-- 游戏集 -->
+    <details class="group border rounded p-4 bg-gray-100 dark:bg-gray-800">
+      <summary class="cursor-pointer text-lg font-semibold"><i class="fa fa-gamepad mr-2"></i><span class="t">默纤游戏</span><span class="e hidden">Games</span></summary>
+      <ul class="pl-4 mt-2 space-y-2">
+        <li><a href="https://fxq.game.moxan.top" target="_blank">在线飞行棋</a></li>
+        <li><a href="https://mc.moxan.top" target="_blank">MC（维护中）</a></li>
+      </ul>
+    </details>
+  </div>
+</div>
+
+<!-- JS: 粒子效果 -->
+<script>
+  tsParticles.load("tsparticles", {
+    background: { color: { value: "transparent" } },
+    particles: {
+      number: { value: 60 },
+      color: { value: "#00faff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: 2 },
+      move: { enable: true, speed: 1 }
+    },
+    interactivity: {
+      events: {
+        onhover: { enable: true, mode: "repulse" }
+      }
+    }
+  });
+</script>
+
+<!-- JS: 搜索功能 -->
+<script>
+  const input = document.getElementById('search');
+  input.addEventListener('input', function () {
+    const keyword = this.value.toLowerCase();
+    document.querySelectorAll('#content a').forEach(link => {
+      const text = link.textContent.toLowerCase();
+      link.parentElement.style.display = text.includes(keyword) ? 'block' : 'none';
+    });
+  });
+
+  function toggleDark() {
+    document.documentElement.classList.toggle('dark');
+  }
+
+  function toggleLang() {
+    document.querySelectorAll('.t').forEach(el => el.classList.toggle('hidden'));
+    document.querySelectorAll('.e').forEach(el => el.classList.toggle('hidden'));
+  }
+</script>
+
+</body>
+</html>
